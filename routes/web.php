@@ -11,21 +11,7 @@
 |
 */
 
-use App\Notice;
-
 Route::get('/', function () {
-    $data = [
-        'provider_id' => 1,
-        'title' => 'Notice 1',
-        'description' => 'Description 1',
-    ];
-//    Notice::open($data)->useTemplate("Template: Notice 1 Description 1")->save();
-    $notice = Notice::open($data)->useTemplate("Template: Notice 1 Description 1");
-
-    \Auth::user()->notices()->save($notice);
-
-    return Notice::all();
-
     return view('welcome');
 })->middleware('auth');
 
